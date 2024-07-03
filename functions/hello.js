@@ -1,12 +1,10 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 
-exports.handler = async (event) => {
-  const visitorName = event.queryStringParameters.visitor_name || 'Guest';
-  const clientIp = event.headers['x-nf-client-connection-ip'];
-  
-  // Fetch location and temperature (mock example)
-  const location = 'New York';
-  const temperature = 11; // Mock temperature
+exports.handler = async function(event, context) {
+  const visitorName = event.queryStringParameters.visitor_name || "Visitor";
+  const clientIp = event.headers['client-ip'] || "Unknown";
+  const location = "New York"; // You may replace this with actual location logic if available
+  const temperature = 11; // Replace with actual temperature fetching logic if needed
 
   const response = {
     client_ip: clientIp,
