@@ -1,3 +1,7 @@
 [build]
-command = "node index.js"
-publish = "."
+  functions = "functions"
+
+[[redirects]]
+  from = "/api/hello"
+  to = "/.netlify/functions/hello"
+  status = 200
